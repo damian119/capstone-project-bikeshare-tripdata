@@ -94,7 +94,7 @@ library(ggplot2)  #helps visualize data
 ```
 
 The `fread()` function from the `data.table` packages is generally faster and more efficient than using `read_csv()`. Therefore, the written function `combine.divvy.trip.data`[^1] is used to do so, and each data set (May 2022 to April 2023) is combined with `binds_row()`. The total observation is 5,859,061.
-```{r load data set with `combine.divvy.trip.data()`, message=FALSE}
+```{r load data set with combine.divvy.trip.data(), message=FALSE}
 source("../scripts/functions.R")
 tripdata_df <- combine.divvy.trip.data()
 
@@ -103,6 +103,7 @@ nrow(tripdata_df)
 
 print(head(tripdata_df),row.names = FALSE)
 ```
+
 [^1]: The `combine.divvy.trip.data` function was inspired by the work of [Peter Carbonetto](https://stephenslab.github.io/wflow-divvy/first-glance.html).
 
 
@@ -132,7 +133,6 @@ tripdata_df <- tripdata_df %>%
          year = year(started_at),
          day_of_week = wday(started_at))
 head(tripdata_df)
-
 ```
 
 The third is to calculate the length of the ride. Using the `difftime()` function, the difference between `started_at` and `ended_at` will returns the length of the ride.
