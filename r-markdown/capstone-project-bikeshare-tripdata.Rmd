@@ -94,7 +94,7 @@ library(ggplot2)  #helps visualize data
 ```
 
 The `fread()` function from the `data.table` packages is generally faster and more efficient than using `read_csv()`. Therefore, the written function `combine.divvy.trip.data`[^1] is used to do so, and each data set (May 2022 to April 2023) is combined with `binds_row()`. The total observation is 5,859,061.
-```{r load data set with `combine.divvy.trip.data()`, message=FALSE}
+```{r load data set with combine.divvy.trip.data(), message=FALSE}
 source("../scripts/functions.R")
 tripdata_df <- combine.divvy.trip.data()
 
