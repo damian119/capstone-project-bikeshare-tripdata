@@ -1,0 +1,21 @@
+name: Render R Markdown
+
+on:
+  push:
+    branches:
+      - preview-rmd
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Render R Markdown
+        uses: r-lib/actions/render-rmarkdown@v1
+        with:
+          render-version: 2
+          r-version: 'latest'
+          html-output-dir: output
